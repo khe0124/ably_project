@@ -1,6 +1,12 @@
 import { createStore } from "vuex";
-import { test } from "@/store/modules/test";
+import { moduleA, ModuleAState } from "@/store/modules/ModuleA";
+import { moduleB, ModuleBState } from "@/store/modules/ModuleB";
+
+export interface RootState {
+  ModuleA: ModuleAState;
+  ModuleB: ModuleBState;
+}
 
 export default createStore({
-  modules: { test }
+  modules: { moduleA, moduleB }
 });
