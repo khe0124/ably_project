@@ -10,13 +10,16 @@ form {
   margin: auto;
 }
 
+a {
+  cursor: pointer;
+}
+
 .btn {
   height: 45px;
   width: 100%;
   margin: 1rem .5rem;
   padding: .5rem .8rem;
   line-height: 2.5;
-  cursor: pointer;
   background-color: #228be6;
   display: inline-block;
   color: #ffffff;
