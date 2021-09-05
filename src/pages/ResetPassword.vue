@@ -6,7 +6,22 @@
     </form>
 </template>
 <script lang="ts">
-import { Vue } from 'vue-class-component';
+import { reactive, toRefs } from 'vue';
 
-export default class ResetPassword extends Vue {}
+export default {
+  name: 'reset-password',
+  setup() {
+    const data = reactive({
+      email: '',
+    });
+
+    return {
+      ...toRefs(data),
+    };
+  },
+};
 </script>
+// {
+//     "email": "ably452@dummy.com",
+//     "password": "!abc321#$"
+// }

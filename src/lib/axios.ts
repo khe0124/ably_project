@@ -6,17 +6,37 @@ export interface ResData {
   message: string;
 }
 
+const BASE_URL = "https://ably-frontend-assignment-server.vercel.app/"
+
 const Axios =  axios.create({
-  baseURL: "/api",
-  timeout: 50000
+  baseURL: "https://ably-frontend-assignment-server.vercel.app/",
+  timeout: 50000,
+  headers: { 
+    "Content-Type": "application/json" 
+  }
 });
 
-Axios.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    return config;
-  },
-  (error: any) => {
-    console.error("error:", error); // for debug
-    Promise.reject(error);
-  }
-);
+Axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+Axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
+
+// Axios.interceptors.request.use(
+//   (config: AxiosRequestConfig) => {
+//     return config;
+//   },
+//   (error: any) => {
+//     Promise.reject(error);
+//   }
+// );
+
+// Axios.interceptors.response.use(
+//   (response: any) => {
+//     return response;
+//   },
+
+//   (error: any) => {
+//     Promise.reject(error);
+//   }
+// );
+
+export default Axios;
