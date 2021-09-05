@@ -6,7 +6,7 @@ export interface RootState {
   data: string; 
 }
 
-
-export default createStore({
+const store = createStore({
   modules: { AuthCode, ResetPassword },
 });
+export default store

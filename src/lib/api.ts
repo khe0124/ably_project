@@ -10,8 +10,8 @@ export async function postAuthCode(params: types.AuthCode) {
 }
 
 export async function patchPassword(params: types.PassWordParams) {
-  const data = JSON.stringify(params)
-  return await Axios.post(`${process.env.VUE_APP_API_URL}/api/reset-password`, data);
+  console.log(params);
+  return await Axios.patch(`${process.env.VUE_APP_API_URL}api/reset-password`, params);
 }
 
 /* 

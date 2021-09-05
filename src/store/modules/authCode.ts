@@ -13,6 +13,11 @@ export const AuthCode: Module<types.AuthCode, RootState> = {
     issueToken: "",
   }),
   mutations: {
+    INIT_DATA(state) {
+      state.email = "";
+      state.authCode = "";
+      state.issueToken = "";
+    },
     SET_AUTH_CODE(state, payload) {
       state.email = payload.email;
       state.authCode = payload.authCode;
@@ -33,7 +38,7 @@ export const AuthCode: Module<types.AuthCode, RootState> = {
           console.log(res.data);
           const data = {
             email: email,
-            authCode: "171009",
+            authCode: "",
             issueToken: res.data.issueToken,
           }
           commit("SET_AUTH_CODE", data);
@@ -42,11 +47,6 @@ export const AuthCode: Module<types.AuthCode, RootState> = {
             params: {time: res.data.remainMillisecond}
           });
         })
-        // .then(() => {
-        //   router.push({
-        //     name: 'CheckAuthCode',
-        //   });
-        // })
         .catch((e) => {
           console.log(e, 'error');
         });
@@ -54,7 +54,11 @@ export const AuthCode: Module<types.AuthCode, RootState> = {
     postAuthCode({ commit }, payload: types.AuthCode) {
       postAuthCode(payload)
         .then((res) => {
-          commit("ResetPassword/CONFIRM_AUTH_CODE", res.data, { root: true });
+          const data = {
+            email: payload.email,
+            ...res.data
+          }
+          commit("ResetPassword/CONFIRM_AUTH_CODE", data, { root: true });
         })
         .then(() => {
           router.push({
