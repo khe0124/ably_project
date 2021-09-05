@@ -47,9 +47,9 @@ export const AuthCode: Module<types.AuthCode, RootState> = {
             params: {time: res.data.remainMillisecond}
           });
         })
-        .catch((e) => {
-          console.log(e, 'error');
-        });
+        // .catch((e) => {
+        //   console.log(e, 'error');
+        // });
     },
     postAuthCode({ commit }, payload: types.AuthCode) {
       postAuthCode(payload)

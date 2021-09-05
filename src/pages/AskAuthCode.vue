@@ -20,7 +20,6 @@ export default {
     const router = useRouter();
     const data = reactive({
       email: '',
-      notMemeber: false,
     });
 
     const getPwAuth = () => {
