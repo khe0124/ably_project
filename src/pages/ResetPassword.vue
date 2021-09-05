@@ -1,8 +1,9 @@
 <template>
     <p>비밀번호 재설정</p>
     <form action="">
-        <input type="text">
-        <button>인증코드 받기</button>
+        <input type="text" placeholder="비밀번호">
+        <input type="text" placeholder="비밀번호확인">
+        <button>새로운 비밀번호로 변경하기</button>
     </form>
 </template>
 <script lang="ts">
@@ -24,4 +25,5 @@ export default {
 // {
 //     "email": "ably452@dummy.com",
 //     "password": "!abc321#$"
+171009
 // }
